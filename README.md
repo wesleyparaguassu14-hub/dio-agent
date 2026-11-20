@@ -8,6 +8,26 @@ Você não precisa saber programar nem instalar nada complicado. Em **3 passos**
 
 ---
 
+## Extensão de cibersegurança
+
+Esta versão do projeto adiciona uma habilidade de triagem defensiva ao mentor DIO Agent. Ela interpreta achados já coletados, explica a prioridade e a confiança e sugere correções e formas de verificá-las.
+
+A habilidade está registrada em [AGENTS.md](AGENTS.md). O fluxo de análise está em [Triagem de vulnerabilidades](skills/vulnerability-triage/SKILL.md).
+
+### Demonstração no Hermes
+
+1. Configure um provedor de IA no Hermes, como Gemini.
+2. No PowerShell, entre na raiz deste repositório, onde está o arquivo `AGENTS.md`.
+3. Rode o teste abaixo com dados fictícios.
+
+```powershell
+hermes chat -q "Use a habilidade de triagem de vulnerabilidades. Em um relatorio ficticio, dois servicos internos compartilham uma conta administrativa. Explique a evidencia, a prioridade, a confianca, a correcao e como verificar a correcao. Responda em portugues."
+```
+
+**Resultado esperado.** Identificar o compartilhamento da conta como a evidência, explicar os fatores que influenciam a prioridade e a confiança, sugerir uma conta por serviço com o mínimo de privilégios e verificar as permissões e o funcionamento dos serviços após a mudança.
+
+**Estado da validação.** O registro da habilidade e os arquivos do projeto foram verificados localmente. O teste de conexão do Hermes recebeu resposta em uma execução anterior. A demonstração completa da habilidade ficou pendente após o Gemini retornar indisponibilidade temporária.
+
 ## ✨ Três palavras para começar
 
 - 🧠 **Agente de IA:** um chatbot responde perguntas. Um *agente* vai além: lê, planeja e executa passos para ajudar você a alcançar um objetivo. É a diferença entre alguém que explica o caminho e alguém que caminha junto com você.
@@ -140,3 +160,7 @@ Tem uma ideia de skill? Veja [como criar uma skill](skills/README.md) e abra um 
 O DIO Agent foi criado para acompanhar você nos Bootcamps e Formações da DIO. A ideia é simples: aprender na era da IA fica mais fácil quando você tem um mentor disponível a qualquer hora.
 
 Bons estudos, e vem com a gente. 🚀
+
+## Validação em máquina virtual
+
+Use o [roteiro com uma configuração vulnerável e outra corrigida](examples/vm-validation/README.md) para verificar os achados do agente antes da publicação.
